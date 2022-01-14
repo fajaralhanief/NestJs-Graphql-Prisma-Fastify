@@ -74,3 +74,4 @@ Nest is [MIT licensed](LICENSE).
 "# NestJs-Graphql-Prisma-Fastify" 
 "# NestJs-Graphql-Prisma-Fastify" 
 "# NestJs-Graphql-Prisma-Fastify" 
+"# NestJs-Graphql-Prisma-Fastify" 
