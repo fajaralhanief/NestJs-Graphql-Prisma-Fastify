@@ -1,0 +1,175 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input AddPost {
+  author: UserCreateNestedOneWithoutPosts!
+  category: PostCategoryCreateNestedManyWithoutPosts!
+  content: String!
+  title: String!
+}
+
+input AddPostCategory {
+  category: String!
+}
+
+input AddUser {
+  email: String
+  name: String
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+}
+
+type Mutation {
+  createPost(addPost: AddPost!): Post!
+  createPostCategory(addPostCategory: AddPostCategory!): PostCategory!
+  createUser(addUser: AddUser!): User!
+  deletePost(id: Int!): Post!
+  deletePostCategory(id: Int!): PostCategory!
+  deleteUser(id: Int!): User!
+  updatePost(data: UpdatePost!, where: WhereUpdatePost): Post!
+  updatePostCategory(data: UpdatePostCategory!, where: WhereUpdatePostCategory): PostCategory!
+  updateUser(data: UpdateUser!, where: WhereUpdateUser): User!
+}
+
+type Post {
+  authorId: Int!
+  content: String!
+  id: Int!
+  title: String!
+}
+
+type PostCategory {
+  category: String!
+  id: Int!
+}
+
+input PostCategoryCreateNestedManyWithoutPosts {
+  connect: PostCategoryWhereUnique
+  connectOrCreate: PostCategoryCreateOrConnectWithoutPosts
+  create: PostCategoryCreateWithoutPosts
+}
+
+input PostCategoryCreateOrConnectWithoutPosts {
+  create: PostCategoryCreateWithoutPosts!
+  where: PostCategoryWhereUnique!
+}
+
+input PostCategoryCreateWithoutPosts {
+  category: String
+}
+
+input PostCategoryListRelationFilter {
+  every: WherePostCategory
+  none: WherePostCategory
+  some: WherePostCategory
+}
+
+input PostCategoryWhereUnique {
+  id: Int
+}
+
+type Query {
+  getCategory(id: Int!): PostCategory!
+  getPost(id: Int!): Post!
+  getUser(email: String!, id: Int!): User!
+  postCategories(skip: Int!, take: Int!, where: WherePostCategory!): [PostCategory!]!
+  posts(skip: Int!, take: Int!, where: WherePost!): [Post!]!
+  users(skip: Int!, take: Int!, where: WhereUser!): [User!]!
+}
+
+input StringFilter {
+  contains: String
+  equals: String
+}
+
+input UpdatePost {
+  authorId: String!
+  content: String!
+  title: String!
+}
+
+input UpdatePostCategory {
+  category: String!
+}
+
+input UpdateUser {
+  email: String!
+  name: String!
+}
+
+type User {
+  email: String!
+  id: Int!
+  name: String
+}
+
+input UserCreateNestedOneWithoutPosts {
+  connect: UserWhereUnique
+  connectOrCreate: UserCreateOrConnectWithoutPosts
+  create: UserCreateWithoutPosts
+}
+
+input UserCreateOrConnectWithoutPosts {
+  create: UserCreateWithoutPosts!
+  where: UserWhereUnique!
+}
+
+input UserCreateWithoutPosts {
+  email: String!
+  name: String
+}
+
+input UserRelationFilter {
+  is: UserWhereInput
+  isNot: UserWhereInput
+}
+
+input UserWhereInput {
+  email: StringFilter
+  id: IntFilter
+  name: StringFilter
+  posts: StringFilter
+}
+
+input UserWhereUnique {
+  email: String
+  id: Int
+}
+
+input WherePost {
+  author: UserRelationFilter
+  authorId: IntFilter
+  category: PostCategoryListRelationFilter
+  content: StringFilter
+  id: IntFilter
+  title: StringFilter
+}
+
+input WherePostCategory {
+  category: StringFilter
+  id: IntFilter
+  posts: StringFilter
+}
+
+input WhereUpdatePost {
+  id: Int
+}
+
+input WhereUpdatePostCategory {
+  id: Int
+}
+
+input WhereUpdateUser {
+  email: String
+  id: Int
+}
+
+input WhereUser {
+  email: StringFilter
+  id: IntFilter
+  name: StringFilter
+}
