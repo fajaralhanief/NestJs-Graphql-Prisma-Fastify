@@ -10,4 +10,8 @@ export class User {
 
     @Field()
     email: string;
+
+    @Field()
+    pass: string;
+
 }

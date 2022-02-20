@@ -16,6 +16,7 @@ input AddPostCategory {
 input AddUser {
   email: String
   name: String
+  pass: String
 }
 
 input IntFilter {
@@ -30,6 +31,7 @@ type Mutation {
   deletePost(id: Int!): Post!
   deletePostCategory(id: Int!): PostCategory!
   deleteUser(id: Int!): User!
+  loginUser(whereLogin: WhereLogin!): UserToken!
   updatePost(data: UpdatePost!, where: WhereUpdatePost): Post!
   updatePostCategory(data: UpdatePostCategory!, where: WhereUpdatePostCategory): PostCategory!
   updateUser(data: UpdateUser!, where: WhereUpdateUser): User!
@@ -73,9 +75,9 @@ input PostCategoryWhereUnique {
 }
 
 type Query {
-  getCategory(id: Int!): PostCategory!
-  getPost(id: Int!): Post!
-  getUser(email: String!, id: Int!): User!
+  getCategory(id: Int): PostCategory!
+  getPost(id: Int): Post!
+  getUser(email: String, id: Int): User!
   postCategories(skip: Int!, take: Int!, where: WherePostCategory!): [PostCategory!]!
   posts(skip: Int!, take: Int!, where: WherePost!): [Post!]!
   users(skip: Int!, take: Int!, where: WhereUser!): [User!]!
@@ -99,12 +101,14 @@ input UpdatePostCategory {
 input UpdateUser {
   email: String!
   name: String!
+  pass: String!
 }
 
 type User {
   email: String!
   id: Int!
   name: String
+  pass: String!
 }
 
 input UserCreateNestedOneWithoutPosts {
@@ -121,11 +125,16 @@ input UserCreateOrConnectWithoutPosts {
 input UserCreateWithoutPosts {
   email: String!
   name: String
+  pass: String
 }
 
 input UserRelationFilter {
   is: UserWhereInput
   isNot: UserWhereInput
+}
+
+type UserToken {
+  user_token: String
 }
 
 input UserWhereInput {
@@ -138,6 +147,11 @@ input UserWhereInput {
 input UserWhereUnique {
   email: String
   id: Int
+}
+
+input WhereLogin {
+  email: String
+  pass: String
 }
 
 input WherePost {

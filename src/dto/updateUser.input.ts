@@ -11,4 +11,8 @@ export class UpdateUser {
   @MaxLength(30)
   email: string;
 
+  @Field()
+  @MaxLength(30)
+  pass: string;
+
 }

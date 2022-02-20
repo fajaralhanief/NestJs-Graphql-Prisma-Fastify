@@ -13,6 +13,7 @@ datasource db {
 model User {
   id    Int     @default(autoincrement()) @id
   email String  @unique
+  pass  String
   name  String?
   posts Post[]
 }

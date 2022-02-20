@@ -8,6 +8,8 @@ import { DeleteUserArgs } from 'src/dto/deleteOneUser.args';
 import { UpdateUserArgs } from 'src/dto/updateUser.args';
 import { GetUsersArgs } from 'src/dto/getUsers.args';
 import { GetUserById } from 'src/dto/getUserById.args';
+import { UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @Resolver()
 export class UserResolver {

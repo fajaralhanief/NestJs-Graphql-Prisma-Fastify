@@ -8,4 +8,7 @@ export class UserCreateWithoutPosts {
 
   @Field({nullable:true})
   name?: string | null
+
+  @Field({nullable:true})
+  pass: string | null
 }

@@ -3,6 +3,6 @@ import { Field, ArgsType, Int } from '@nestjs/graphql';
 
 @ArgsType()
 export class GetPostCategoryById {
-  @Field((type) => Int,{nullable: false})
+  @Field((type) => Int,{nullable: true})
   id : number;
 }

@@ -7,8 +7,14 @@ export class UserArgs {
   id?: number;
 
   @Field({nullable:true})
-  name: string;
+  name?: string;
 
   @Field({nullable:true})
   email: string;
+
+  @Field({nullable:true})
+  pass: string;
+
+  @Field({nullable:true})
+  posts?: string;
 }
